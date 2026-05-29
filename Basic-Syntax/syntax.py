@@ -113,3 +113,106 @@ account.deposit(500)
 print(account.get_balance())  # Output: 1500
 account.withdraw(200)
 print(account.get_balance())  # Output: 1300
+
+# Abstraction
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+    @abstractmethod
+    def perimeter(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius ** 2
+
+    def perimeter(self):
+        return 2 * 3.14 * self.radius
+rectangle = Rectangle(4, 5)
+print(rectangle.area())  # Output: 20
+print(rectangle.perimeter())  # Output: 18
+circle = Circle(3)
+print(circle.area())  # Output: 28.26
+print(circle.perimeter())  # Output: 18.84
+
+# Modules and Packages
+
+# Importing the module
+import math_utils
+print(math_utils.add(5, 3))  # Output: 8
+print(math_utils.subtract(5, 3))  # Output: 2
+
+# Exception Handling
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+# Regular Expressions
+import re
+pattern = r'\d+'  # Matches one or more digits
+text = "The price is 100 dollars"
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['100']
+
+
+# Lambda Functions
+square = lambda x: x ** 2
+print(square(5))  # Output: 25
+
+# Map, Filter, Reduce
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(square, numbers))
+print(squared_numbers)  # Output: [1, 4, 9, 16, 25]
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers)  # Output: [2, 4]
+
+from functools import reduce
+product = reduce(lambda x, y: x * y, numbers)
+print(product)  # Output: 120
+
+# Decorators
+def decorator1(func):
+    def wrapper():
+        print("Before the function call")
+        func()
+        print("After the function call")
+    return wrapper
+@decorator1
+def say_hello():
+    print("Hello!")
+say_hello()
+
+# Generators
+def count_up_to(n):
+    count = 1
+    while count <= n:
+        yield count
+        count += 1
+for number in count_up_to(5):
+    print(number)  # Output: 1 2 3 4 5
+    
+# Iterators
+my_list = [1, 2, 3]
+my_iterator = iter(my_list)
+print(next(my_iterator))  # Output: 1
+print(next(my_iterator))  # Output: 2
+print(next(my_iterator))  # Output: 3
