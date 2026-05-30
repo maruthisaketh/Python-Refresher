@@ -209,10 +209,27 @@ def count_up_to(n):
         count += 1
 for number in count_up_to(5):
     print(number)  # Output: 1 2 3 4 5
-    
+
 # Iterators
 my_list = [1, 2, 3]
 my_iterator = iter(my_list)
 print(next(my_iterator))  # Output: 1
 print(next(my_iterator))  # Output: 2
 print(next(my_iterator))  # Output: 3
+
+
+# File Handling
+
+# writing to a file
+with open("example.txt", "w") as file:
+    file.write("This is an example file.")
+
+# Appending to a file
+with open("example.txt", "a") as file:
+    file.write("\nThis line is appended to the file.")
+
+# Reading from a file
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)  # Output: This is an example file.
+
